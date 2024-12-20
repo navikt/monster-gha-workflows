@@ -60,9 +60,11 @@ jobs:
 
       - name: Install dependencies for client
         run: pnpm install
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.READER_TOKEN }}
 
       - name: Install dependencies for server
-        run: cd server && pnpm install --frozen-lockfile
+        run: cd server && pnpm install
         env:
           NODE_AUTH_TOKEN: ${{ secrets.READER_TOKEN }}
 
