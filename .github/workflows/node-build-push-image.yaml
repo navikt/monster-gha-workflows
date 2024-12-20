@@ -33,6 +33,7 @@ jobs:
         with:
           node-version: ${{ inputs.node-version }}
           registry-url: "https://npm.pkg.github.com"
+          scope: '@navikt'
 
       - uses: pnpm/action-setup@v4
         id: pnpm-install
@@ -61,7 +62,7 @@ jobs:
         run: pnpm install
 
       - name: Install dependencies for server
-        run: cd server && pnpm install
+        run: cd server && pnpm install --frozen-lockfile
         env:
           NODE_AUTH_TOKEN: ${{ secrets.READER_TOKEN }}
 
