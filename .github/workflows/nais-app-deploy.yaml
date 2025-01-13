@@ -21,6 +21,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          
       - name: Deploy to Environment
         uses: nais/deploy/actions/deploy@v2
         env:

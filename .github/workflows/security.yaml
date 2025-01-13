@@ -21,9 +21,12 @@ jobs:
       matrix:
         include:
           - language: ${{ inputs.language }}
-          
+
     steps:
       - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          
       - uses: github/codeql-action/init@v3
         with:
           languages: ${{ matrix.language }}
